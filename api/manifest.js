@@ -1,5 +1,5 @@
 export default function handler(req, res) {
-  // ✅ CORS FIX (WAJIB)
+  // ✅ CORS WAJIB
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "*");
@@ -11,7 +11,7 @@ export default function handler(req, res) {
 
   res.setHeader("Content-Type", "application/json");
 
-  return res.status(200).send({
+  res.status(200).json({
     aci_version: "1.0",
     version: "1.0.0",
 
