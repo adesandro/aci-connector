@@ -1,22 +1,37 @@
-{
-  "aci_version": "1.0",
-  "version": "1.0.0",
+export default function handler(req, res) {
+  try {
+    const baseUrl = `https://${req.headers.host}`;
 
-  "connector": {
-    "id": "aci-vercel",
-    "name": "ACI Vercel Connector"
-  },
+    res.setHeader("Content-Type", "application/json");
+    res.setHeader("Access-Control-Allow-Origin", "*");
 
-  "description": "Connector dari Vercel",
-  "base_url": "https://aci-connector.vercel.app",
+    res.status(200).json({
+      aci_version: "1.0",
+      version: "1.0.0",
 
-  "tools": [
-    {
-      "name": "hello",
-      "description": "Test koneksi",
-      "method": "GET",
-      "path": "/api/hello",
-      "parameters": []
-    }
-  ]
+      connector: {
+        id: "aci-vercel",
+        name: "ACI Vercel Connector"
+      },
+
+      description: "Connector dari Vercel",
+      base_url: baseUrl,
+
+      tools: [
+        {
+          name: "hello",
+          description: "Test koneksi",
+          method: "GET",
+          path: "/api/hello",
+          parameters: []
+        }
+      ]
+    });
+
+  } catch (error) {
+    res.status(500).json({
+      error: "Manifest error",
+      detail: error.message
+    });
+  }
 }
