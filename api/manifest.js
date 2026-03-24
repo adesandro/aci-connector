@@ -1,17 +1,16 @@
 export default function handler(req, res) {
-  // ✅ CORS WAJIB
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "*");
+  res.setHeader("Access-Control-Allow-Credentials", "true");
 
-  // ✅ handle preflight
   if (req.method === "OPTIONS") {
     return res.status(200).end();
   }
 
   res.setHeader("Content-Type", "application/json");
 
-  res.status(200).json({
+  return res.status(200).json({
     aci_version: "1.0",
     version: "1.0.0",
 
