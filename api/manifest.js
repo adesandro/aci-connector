@@ -5,7 +5,7 @@ export default function handler(req, res) {
   res.setHeader("Access-Control-Allow-Origin", "*");
 
   res.status(200).json({
-    aci_version: "1.0", // 🔥 WAJIB (INI YANG KURANG)
+    aci_version: "1.0", // 🔥 INI WAJIB
     name: "aci-vercel",
     version: "1.0.0",
     description: "Connector dari Vercel",
