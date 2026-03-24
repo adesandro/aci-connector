@@ -1,28 +1,22 @@
-export default function handler(req, res) {
-  const baseUrl = `https://${req.headers.host}`;
+{
+  "aci_version": "1.0",
+  "version": "1.0.0",
 
-  res.setHeader("Content-Type", "application/json");
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  "connector": {
+    "id": "aci-vercel",
+    "name": "ACI Vercel Connector"
+  },
 
-  res.status(200).json({
-    aci_version: "1.0",
+  "description": "Connector dari Vercel",
+  "base_url": "https://aci-connector.vercel.app",
 
-    connector: {
-      id: "aci-vercel", // 🔥 WAJIB
-      name: "ACI Vercel Connector" // 🔥 WAJIB
-    },
-
-    description: "Connector dari Vercel",
-    base_url: baseUrl,
-
-    tools: [
-      {
-        name: "hello",
-        description: "Test koneksi",
-        method: "GET",
-        path: "/api/hello",
-        parameters: []
-      }
-    ]
-  });
+  "tools": [
+    {
+      "name": "hello",
+      "description": "Test koneksi",
+      "method": "GET",
+      "path": "/api/hello",
+      "parameters": []
+    }
+  ]
 }
