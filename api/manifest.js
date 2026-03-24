@@ -1,5 +1,6 @@
 export default function handler(req, res) {
-  const baseUrl = "https://aci-connector.vercel.app";
+  res.setHeader("Content-Type", "application/json");
+  res.setHeader("Access-Control-Allow-Origin", "*");
 
   res.status(200).json({
     aci_version: "1.0",
@@ -11,7 +12,7 @@ export default function handler(req, res) {
     },
 
     description: "Connector dari Vercel",
-    base_url: baseUrl,
+    base_url: "https://aci-connector.vercel.app",
 
     tools: [
       {
