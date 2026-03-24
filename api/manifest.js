@@ -21,7 +21,7 @@ export default function handler(req, res) {
     },
 
     description: "Connector dari Vercel",
-    base_url: "https://aci-connector.vercel.app",
+    base_url: "https://api.smaxavour.sch.id",
 
     tools: [
       {
