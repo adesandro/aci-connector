@@ -1,10 +1,7 @@
 export default function handler(req, res) {
-  const host = req.headers.host || "aci-connector.vercel.app";
-  const baseUrl = `https://${host}`;
+  const baseUrl = "https://aci-connector.vercel.app";
 
-  res.setHeader("Content-Type", "application/json");
-
-  return res.status(200).send({
+  res.status(200).json({
     aci_version: "1.0",
     version: "1.0.0",
 
